@@ -1,0 +1,10 @@
+{
+  "name": "AI Funny Face Commentator",
+  "description": "Real-time face tracking AR camera filter with glowing cyber outlines, facial landmark reactions, button-controlled sessions, and witty English funny comments.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

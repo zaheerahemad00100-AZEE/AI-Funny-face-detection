@@ -1,0 +1,7 @@
+# AI Funny Face Commentator Dependencies
+# Optimized for Python 3.12 on Windows / Linux / macOS
+
+opencv-python>=4.8.0.76
+mediapipe>=0.10.14,<=0.10.21
+numpy>=1.24.0,<2.0.0
+pyttsx3>=2.90
