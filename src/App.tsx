@@ -77,16 +77,7 @@ export default function App() {
     [comments, activeComment]
   );
 
-  // Periodic timer
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      cycleComment('SWAG');
-    }, 2800);
-    return () => clearInterval(interval);
-  }, [isPaused, cycleComment]);
-
-  // Global Keyboard shortcuts (Q/ESC, SPACE, C, S)
+  // Global Keyboard shortcuts (SPACE to pause, C to cycle comment during session)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
@@ -108,10 +99,7 @@ export default function App() {
   const handleSelectComment = (item: CommentItem) => {
     setActiveComment(item.text);
     setActiveCategory(item.category);
-    const spokenText = filterEmojis(item.text);
-    if (spokenText) {
-      ttsService.speak(spokenText);
-    }
+    // Note: Do not speak automatically here; speech only occurs during an active session for visible comments
   };
 
   const handleAddComment = (newComment: CommentItem) => {

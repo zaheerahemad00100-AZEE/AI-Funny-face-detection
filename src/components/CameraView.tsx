@@ -199,6 +199,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
   // -------------------------------------------------------------
   const handleStartSession = useCallback(() => {
     setSessionActive(true);
+    ttsService.setSessionActive(true);
     faceRecordsRef.current = {};
     soundEffects.playCommentChime();
     console.log('[CameraView] Session Started: Face tracking and commentary active.');
@@ -206,10 +207,9 @@ export const CameraView: React.FC<CameraViewProps> = ({
 
   const handleEndSession = useCallback(() => {
     setSessionActive(false);
+    ttsService.setSessionActive(false);
     setNumFacesTracked(0);
     faceRecordsRef.current = {};
-    // Immediately halt voice output and cancel ongoing speech
-    ttsService.clearAndStop();
     console.log('[CameraView] Session Ended: Face tracking stopped and pending voice cleared.');
   }, []);
 
